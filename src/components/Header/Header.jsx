@@ -46,11 +46,10 @@ const NavLi = styled.li`
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
-  color: white; /* Text color for nav items */
+  color: white;
   font-weight: bold;
   &:hover,
   &.active {
     color: #06bcee;
   }
-  ${props => props.addStyles}
 `;

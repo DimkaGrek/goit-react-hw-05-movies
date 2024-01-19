@@ -1,8 +1,13 @@
-import { StyledLink } from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
 import { useHttp } from 'hooks/useHttp';
 import React, { useRef } from 'react';
-import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 import { getMoviesById } from 'services/movies';
 import styled from 'styled-components';
 import { toast, ToastContainer } from 'react-toastify';
@@ -27,10 +32,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <StyledLink to={goBackLink.current} addStyles={goBack}>
-        {' '}
-        &larr; Go Back
-      </StyledLink>
+      <GoBack to={goBackLink.current}> &larr; Go Back</GoBack>
       <MovieContainer>
         <img
           src={
@@ -147,11 +149,14 @@ const AddInfoLink = styled(NavLink)`
   }
 `;
 
-const goBack = `
-display: inline-block;
-margin-top: 1rem;
-margin-left: 1rem;
-&:hover {
-    color: white;
-}
+const GoBack = styled(Link)`
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-weight: bold;
+  color: white;
+  &:hover {
+    color: #06bcee;
+  }
 `;
